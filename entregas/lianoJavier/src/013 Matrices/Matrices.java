@@ -18,7 +18,7 @@ class Matrices {
     dibujar(mapa);
   }
 
-  private static void dibujar(int[][] mundo) {
+  static void dibujar(int[][] mundo) {
     String pixel;
     final String BORDE = "=";
     System.out.println(BORDE.repeat(mundo[0].length));
