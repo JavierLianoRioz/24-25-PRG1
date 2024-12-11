@@ -1,10 +1,33 @@
+import java.util.Scanner;
+
 class Matrices {
   public static void main(String[] args) {
     int[][] mapa = getMapa(0);
+    int[] coordenadasJugador = getCoordenadas(3,2);
 
-    coordenadasJugador = movePersonaje(coordenadasJugador);
+    boolean isPlaying = true;
+    do{
+      dibujar(mapa, coordenadasJugador);
+      isPlaying = jugabilidad();
+    } while (isPlaying);
+  }
 
-    dibujar(mapa, coordenadasJugador);
+  static boolean jugabilidad() {
+    String entrada = new Scanner(System.in).nextLine();
+    move(coordenadasJugador, entrada);
+    return salir(entrada);
+  }
+
+  static boolean salir(Scanner entrada) {
+    if (movimiento.equalsIgnoreCase("ñ")) return false;
+    return true;
+  }
+
+  static void move(int[] coordenadas, String movimiento) {
+    if (movimiento.equalsIgnoreCase("a")) coordenadas[0] = coordenadas[0] - 1;
+    if (movimiento.equalsIgnoreCase("d")) coordenadas[0] = coordenadas[0] + 1;
+    if (movimiento.equalsIgnoreCase("w")) coordenadas[1] = coordenadas[1] - 1;
+    if (movimiento.equalsIgnoreCase("a")) coordenadas[1] = coordenadas[1] + 1;
   }
 
   static int getLongitudMaxima(int[][] matriz) {
