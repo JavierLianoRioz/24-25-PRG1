@@ -12,10 +12,10 @@ class Matrices {
     } while (isPlaying);
   }
 
-  static boolean jugabilidad(int[] coordenadas) {
+  static boolean jugabilidad(int[] coordenadasJugador) {
     String entrada = new Scanner(System.in).nextLine();
     move(coordenadasJugador, entrada);
-    return salir(entrada);
+    return !salir(entrada);
   }
 
   static boolean salir(String entrada) {
@@ -25,13 +25,13 @@ class Matrices {
   }
 
   static void move(int[] coordenadas, String movimiento) {
-    if (movimiento.equalsIgnoreCase("a"))
-      coordenadas[0] = coordenadas[0] - 1;
-    if (movimiento.equalsIgnoreCase("d"))
-      coordenadas[0] = coordenadas[0] + 1;
     if (movimiento.equalsIgnoreCase("w"))
-      coordenadas[1] = coordenadas[1] - 1;
+      coordenadas[0] = coordenadas[0] - 1;
+    if (movimiento.equalsIgnoreCase("s"))
+      coordenadas[0] = coordenadas[0] + 1;
     if (movimiento.equalsIgnoreCase("a"))
+      coordenadas[1] = coordenadas[1] - 1;
+    if (movimiento.equalsIgnoreCase("d"))
       coordenadas[1] = coordenadas[1] + 1;
   }
 
