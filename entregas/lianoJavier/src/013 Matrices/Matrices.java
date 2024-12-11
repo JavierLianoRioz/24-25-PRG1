@@ -15,12 +15,13 @@ class Matrices {
   static boolean jugabilidad(int[] coordenadasJugador) {
     String entrada = new Scanner(System.in).nextLine();
     move(coordenadasJugador, entrada);
-    return !salir(entrada);
+    return salir(entrada);
   }
 
   static boolean salir(String entrada) {
-    if (entrada.equalsIgnoreCase("ñ"))
+    if (entrada.equalsIgnoreCase(":q")) {
       return false;
+    }
     return true;
   }
 
