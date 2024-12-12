@@ -12,9 +12,13 @@ class Matrices {
     } while (isPlaying);
   }
 
+  static String getEntradaTeclado() {
+    return new Scanner(System.in).nextLine();
+  }
+
   static boolean jugabilidad(int[] coordenadasJugador) {
-    String entrada = new Scanner(System.in).nextLine();
-    move(coordenadasJugador, entrada);
+    String teclado = getEntradaTeclado();
+    move(coordenadasJugador, teclado);
     return salir(entrada);
   }
 
