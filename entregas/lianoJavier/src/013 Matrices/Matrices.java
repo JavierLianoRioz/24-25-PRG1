@@ -21,14 +21,19 @@ class Matrices {
   static void move(String movimiento) {
     int[] coordenadas = getCoordenadas();
 
-    if (movimiento.equalsIgnoreCase("w")) coordenadas[0] = coordenadas[0] - 1;
-    if (movimiento.equalsIgnoreCase("s")) coordenadas[0] = coordenadas[0] + 1;
-    if (movimiento.equalsIgnoreCase("a")) coordenadas[1] = coordenadas[1] - 1;
-    if (movimiento.equalsIgnoreCase("d")) coordenadas[1] = coordenadas[1] + 1;
+    if (movimiento.equalsIgnoreCase("w"))
+      coordenadas[0] = coordenadas[0] - 1;
+    if (movimiento.equalsIgnoreCase("s"))
+      coordenadas[0] = coordenadas[0] + 1;
+    if (movimiento.equalsIgnoreCase("a"))
+      coordenadas[1] = coordenadas[1] - 1;
+    if (movimiento.equalsIgnoreCase("d"))
+      coordenadas[1] = coordenadas[1] + 1;
   }
 
   static boolean salir(String tecla) {
-    if (tecla.equalsIgnoreCase(":q")) return false;
+    if (tecla.equalsIgnoreCase(":q"))
+      return false;
     return true;
   }
 
@@ -117,7 +122,7 @@ class Matrices {
   }
 
   static int[] getCoordenadas() {
-    int y=3, x=2;
+    int y = 3, x = 2;
     int[] coordenadas = { y, x };
     return coordenadas;
   }
