@@ -3,7 +3,7 @@ import java.util.Scanner;
 class Matrices {
   public static void main(String[] args) {
     int[][] mapa = getMapa(0);
-    int[] coordenadasJugador = getCoordenadas(3, 2);
+    int[] coordenadasJugador = getCoordenadas();
 
     boolean isPlaying = true;
     do {
@@ -120,7 +120,8 @@ class Matrices {
     return MUNDOS[index];
   }
 
-  static int[] getCoordenadas(int y, int x) {
+  static int[] getCoordenadas() {
+    int y=3, x=2;
     int[] coordenadas = { y, x };
     return coordenadas;
   }
