@@ -12,21 +12,11 @@ class Matrices {
     } while (isPlaying);
   }
 
-  static String getEntradaTeclado() {
-    return new Scanner(System.in).nextLine();
-  }
 
   static boolean jugabilidad(int[] coordenadasJugador) {
     String teclado = getEntradaTeclado();
     move(coordenadasJugador, teclado);
     return salir(teclado);
-  }
-
-  static boolean salir(String entrada) {
-    if (entrada.equalsIgnoreCase(":q")) {
-      return false;
-    }
-    return true;
   }
 
   static void move(int[] coordenadas, String movimiento) {
@@ -40,46 +30,11 @@ class Matrices {
       coordenadas[1] = coordenadas[1] + 1;
   }
 
-  static int getLongitudMaxima(int[][] matriz) {
-    int longitudMaxima = matriz[0].length;
-
-    for (int row = 1; row < matriz.length; row++) {
-      longitudMaxima = longitudMaxima > matriz[row].length ? longitudMaxima : matriz[row].length;
+  static boolean salir(String entrada) {
+    if (entrada.equalsIgnoreCase(":q")) {
+      return false;
     }
-
-    return longitudMaxima;
-  }
-
-  static int[][] getMapa(int index) {
-    final int[][][] MUNDOS = {
-        {
-            { 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 },
-            { 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 3, 3, 3, 3, 3, 3, 3, 3 },
-            { 7, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 7, 3, 3, 3, 3 },
-            { 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 2, 2, 3, 3 },
-            { 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 7, 7, 2, 2, 3 },
-            { 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 8, 7, 7, 2, 3 },
-            { 5, 5, 5, 5, 5, 0, 2, 0, 5, 5, 5, 5, 5, 0, 0, 0, 2, 0, 0, 0, 0, 5, 7, 2, 2 },
-            { 5, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0, 2, 0, 0, 0, 0, 8, 7, 7, 2 },
-            { 5, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0, 2, 0, 0, 0, 0, 0, 5, 7, 7 },
-            { 5, 0, 1, 1, 1, 0, 2, 0, 1, 1, 1, 0, 5, 8, 8, 8, 2, 8, 8, 8, 8, 5, 5, 7, 7 },
-            { 5, 0, 1, 1, 1, 1, 2, 1, 1, 1, 1, 0, 5, 8, 6, 6, 2, 6, 6, 6, 5, 5, 5, 7, 7 },
-            { 5, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 5, 6, 6, 6, 2, 6, 5, 5, 5, 5, 5, 7, 7 },
-            { 5, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 5, 6, 6, 6, 2, 5, 5, 5, 8, 8, 8, 5, 7 },
-            { 5, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 5, 6, 6, 5, 2, 5, 6, 6, 6, 8, 8, 5, 7 },
-            { 5, 0, 1, 1, 9, 1, 1, 1, 9, 1, 1, 0, 5, 6, 5, 5, 2, 6, 6, 8, 8, 8, 8, 8, 7 },
-            { 5, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 5, 5, 5, 6, 2, 6, 6, 6, 8, 1, 1, 1, 1 },
-            { 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 4, 6, 2, 2, 2, 2, 2, 9, 0, 0, 0 },
-            { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 6, 6, 8, 8, 8, 8, 1, 0, 0, 0 },
-            { 7, 7, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 6, 6, 8, 8, 8, 8, 1, 0, 5, 0 }
-        }
-    };
-    return MUNDOS[index];
-  }
-
-  static int[] getCoordenadas(int y, int x) {
-    int[] coordenadas = { y, x };
-    return coordenadas;
+    return true;
   }
 
   static void dibujar(int[][] mundo, int[] coordenadasPersonaje) {
@@ -124,5 +79,51 @@ class Matrices {
       default -> "???";
     };
   };
+
+  static String getEntradaTeclado() {
+    return new Scanner(System.in).nextLine();
+  }
+
+  static int getLongitudMaxima(int[][] matriz) {
+    int longitudMaxima = matriz[0].length;
+
+    for (int row = 1; row < matriz.length; row++) {
+      longitudMaxima = longitudMaxima > matriz[row].length ? longitudMaxima : matriz[row].length;
+    }
+
+    return longitudMaxima;
+  }
+
+  static int[][] getMapa(int index) {
+    final int[][][] MUNDOS = {
+        {
+            { 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 },
+            { 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 3, 3, 3, 3, 3, 3, 3, 3 },
+            { 7, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 7, 3, 3, 3, 3 },
+            { 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 2, 2, 3, 3 },
+            { 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 7, 7, 2, 2, 3 },
+            { 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 8, 7, 7, 2, 3 },
+            { 5, 5, 5, 5, 5, 0, 2, 0, 5, 5, 5, 5, 5, 0, 0, 0, 2, 0, 0, 0, 0, 5, 7, 2, 2 },
+            { 5, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0, 2, 0, 0, 0, 0, 8, 7, 7, 2 },
+            { 5, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0, 2, 0, 0, 0, 0, 0, 5, 7, 7 },
+            { 5, 0, 1, 1, 1, 0, 2, 0, 1, 1, 1, 0, 5, 8, 8, 8, 2, 8, 8, 8, 8, 5, 5, 7, 7 },
+            { 5, 0, 1, 1, 1, 1, 2, 1, 1, 1, 1, 0, 5, 8, 6, 6, 2, 6, 6, 6, 5, 5, 5, 7, 7 },
+            { 5, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 5, 6, 6, 6, 2, 6, 5, 5, 5, 5, 5, 7, 7 },
+            { 5, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 5, 6, 6, 6, 2, 5, 5, 5, 8, 8, 8, 5, 7 },
+            { 5, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 5, 6, 6, 5, 2, 5, 6, 6, 6, 8, 8, 5, 7 },
+            { 5, 0, 1, 1, 9, 1, 1, 1, 9, 1, 1, 0, 5, 6, 5, 5, 2, 6, 6, 8, 8, 8, 8, 8, 7 },
+            { 5, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 5, 5, 5, 6, 2, 6, 6, 6, 8, 1, 1, 1, 1 },
+            { 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 4, 6, 2, 2, 2, 2, 2, 9, 0, 0, 0 },
+            { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 6, 6, 8, 8, 8, 8, 1, 0, 0, 0 },
+            { 7, 7, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 6, 6, 8, 8, 8, 8, 1, 0, 5, 0 }
+        }
+    };
+    return MUNDOS[index];
+  }
+
+  static int[] getCoordenadas(int y, int x) {
+    int[] coordenadas = { y, x };
+    return coordenadas;
+  }
 
 }
