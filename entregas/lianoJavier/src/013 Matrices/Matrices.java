@@ -18,21 +18,17 @@ class Matrices {
     return salir(teclado);
   }
 
-  static void move(int[] coordenadas, String movimiento) {
-    if (movimiento.equalsIgnoreCase("w"))
-      coordenadas[0] = coordenadas[0] - 1;
-    if (movimiento.equalsIgnoreCase("s"))
-      coordenadas[0] = coordenadas[0] + 1;
-    if (movimiento.equalsIgnoreCase("a"))
-      coordenadas[1] = coordenadas[1] - 1;
-    if (movimiento.equalsIgnoreCase("d"))
-      coordenadas[1] = coordenadas[1] + 1;
+  static void move(String movimiento) {
+    int[] coordenadas = getCoordenadas();
+
+    if (movimiento.equalsIgnoreCase("w")) coordenadas[0] = coordenadas[0] - 1;
+    if (movimiento.equalsIgnoreCase("s")) coordenadas[0] = coordenadas[0] + 1;
+    if (movimiento.equalsIgnoreCase("a")) coordenadas[1] = coordenadas[1] - 1;
+    if (movimiento.equalsIgnoreCase("d")) coordenadas[1] = coordenadas[1] + 1;
   }
 
-  static boolean salir(String entrada) {
-    if (entrada.equalsIgnoreCase(":q")) {
-      return false;
-    }
+  static boolean salir(String tecla) {
+    if (tecla.equalsIgnoreCase(":q")) return false;
     return true;
   }
 
