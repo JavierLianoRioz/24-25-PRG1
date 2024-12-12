@@ -12,7 +12,6 @@ class Matrices {
     } while (isPlaying);
   }
 
-
   static boolean jugabilidad(int[] coordenadasJugador) {
     String teclado = getEntradaTeclado();
     move(coordenadasJugador, teclado);
