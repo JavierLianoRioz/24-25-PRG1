@@ -23,12 +23,16 @@ class Matrices {
 
     if (movimiento.equalsIgnoreCase("w"))
       coordenadas[0] = coordenadas[0] - 1;
+    
     if (movimiento.equalsIgnoreCase("s"))
       coordenadas[0] = coordenadas[0] + 1;
+
     if (movimiento.equalsIgnoreCase("a"))
       coordenadas[1] = coordenadas[1] - 1;
+
     if (movimiento.equalsIgnoreCase("d"))
       coordenadas[1] = coordenadas[1] + 1;
+
   }
 
   static boolean salir(String tecla) {
